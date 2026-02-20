@@ -49,8 +49,21 @@ const AdminView = (() => {
             <div class="font-semibold">${esc(r.name)}</div>
             <div class="text-xs text-muted">${r.status} · ${r.settings?.timezone || 'UTC'}</div>
           </div>
-          <span class="chip ${r.status === 'active' ? 'chip-success' : 'chip-gray'}">${r.status}</span>
+          <span class="chip ${r.status === 'active' ? 'chip-success' : 'chip-gray'}" style="margin-right:4px">${r.status}</span>
+          <button class="icon-btn del-realm-btn" data-id="${r.id}" data-name="${esc(r.name)}" title="Archive Realm" style="color:var(--danger);width:32px;height:32px;flex-shrink:0">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:18px;height:18px"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>
+          </button>
         </div>`).join('')}</div>`;
+      el.querySelectorAll('.del-realm-btn').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          if (!confirm(`Archive realm "${btn.dataset.name}"?\nThis will deactivate the realm and all its users.`)) return;
+          try {
+            await API.realms.archive(btn.dataset.id);
+            App.toast('Realm archived.', 'success');
+            _loadRealms();
+          } catch (err) { App.toast(err.message, 'danger'); }
+        });
+      });
     } catch (err) { el.innerHTML = `<div class="empty-state"><p>${esc(err.message)}</p></div>`; }
   }
 

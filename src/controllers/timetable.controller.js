@@ -177,8 +177,19 @@ async function addPeriod(req, res, next) {
       return res.status(HTTP.BAD_REQUEST).json({ success: false, message: 'subjectCode, startTime, and endTime are required.' });
     }
 
-    const tt = getTimetableDoc(realmId, res);
-    if (!tt) return;
+    // Auto-create timetable doc if this realm doesn't have one yet
+    let tt = db.findOne('timetables', (t) => t.realmId === realmId);
+    if (!tt) {
+      const emptySchedule = {};
+      for (const wt of VALID_WEEK_TYPES) {
+        emptySchedule[wt] = Object.fromEntries(DAYS.map((d) => [d, []]));
+      }
+      tt = await db.insert('timetables', {
+        realmId,
+        createdBy: req.user.id,
+        schedule:  emptySchedule,
+      });
+    }
 
     const newPeriod = {
       id:                 uuidv4(),
