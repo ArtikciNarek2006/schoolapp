@@ -127,8 +127,9 @@ function socketHandler(io) {
       console.log(`[socket] disconnected: ${user.displayName} | reason: ${reason}`);
     });
 
-    // Phase 4: chat message sending, file handling, etc. will be added here by
-    // importing chatHandler and calling:  chatHandler(io, socket, user);
+    // ── Phase 4: real-time chat ────────────────────────────────────────────────
+    const chatHandler = require('./chatHandler');
+    chatHandler(io, socket, user);
   });
 }
 

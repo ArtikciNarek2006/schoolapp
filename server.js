@@ -29,6 +29,8 @@ const userRoutes           = require('./src/routes/user.routes');
 const timetableRoutes      = require('./src/routes/timetable.routes');
 const attendanceRoutes     = require('./src/routes/attendance.routes');
 const noticeRoutes         = require('./src/routes/notice.routes');
+const groupRoutes          = require('./src/routes/group.routes');
+const messageRoutes        = require('./src/routes/message.routes');
 const socketHandler        = require('./src/socket/index');
 const { startScheduler }   = require('./src/socket/notificationScheduler');
 const { notFound, errorHandler } = require('./src/middleware/errorHandler');
@@ -76,7 +78,9 @@ app.use('/api/realms/:realmId/timetable',  timetableRoutes);
 app.use('/api/realms/:realmId/attendance', attendanceRoutes);
 app.use('/api/realms/:realmId/notices',    noticeRoutes);
 
-// Chat / message routes  — wired in Phase 4
+// Chat / message routes (Phase 4)
+app.use('/api/realms/:realmId/groups', groupRoutes);
+app.use('/api/realms/:realmId/groups/:groupId/messages', messageRoutes);
 
 // ── 4. Catch-all: serve frontend for any non-API route (SPA fallback) ─────────
 app.get(/^(?!\/api).*$/, (_req, res) => {

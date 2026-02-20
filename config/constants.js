@@ -98,6 +98,9 @@ const SOCKET_EVENTS = Object.freeze({
   JOIN_ROOM:         'join_room',
   LEAVE_ROOM:        'leave_room',
   SEND_MESSAGE:      'send_message',
+  DELETE_MESSAGE:    'delete_message',
+  MARK_READ:         'mark_read',
+  READ_RECEIPT:      'read_receipt',
   TYPING:            'typing',
   STOP_TYPING:       'stop_typing',
 });
