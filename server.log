@@ -1,0 +1,210 @@
+[seed] Running bootstrap checks…
+[seed] Project Admin already exists (superadmin) — skipping.
+[seed] Bootstrap complete.
+node:events:497
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1934:16)
+    at listenInCluster (node:net:1991:12)
+    at Server.listen (node:net:2096:7)
+    at start (/home/revio/Desktop/MyMobileApp/server.js:115:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1970:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+
+Node.js v22.22.0
+[seed] Running bootstrap checks…
+[seed] Project Admin already exists (superadmin) — skipping.
+[seed] Bootstrap complete.
+node:events:497
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1934:16)
+    at listenInCluster (node:net:1991:12)
+    at Server.listen (node:net:2096:7)
+    at start (/home/revio/Desktop/MyMobileApp/server.js:115:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1970:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+
+Node.js v22.22.0
+[seed] Running bootstrap checks…
+[seed] Project Admin already exists (superadmin) — skipping.
+[seed] Bootstrap complete.
+
+✅  Server running → http://localhost:3000
+   Environment : development
+   Press Ctrl+C to stop.
+
+[scheduler] Lesson notification scheduler started (interval: 60s).
+[scheduler] Scheduler stopped.
+[socket] connected: Super Admin (project_admin) | socketId: nq4arDhJXe6FeS-3AAAB
+[seed] Running bootstrap checks…
+[seed] Project Admin already exists (superadmin) — skipping.
+[seed] Bootstrap complete.
+
+✅  Server running → http://localhost:3000
+   Environment : development
+   Press Ctrl+C to stop.
+
+[scheduler] Lesson notification scheduler started (interval: 60s).
+[socket] connected: Super Admin (project_admin) | socketId: K-JSbLjn2WJLarsoAAAB
+[socket] disconnected: Super Admin | reason: client namespace disconnect
+[socket] connected: Super Admin (project_admin) | socketId: oUlAWFb77wre9m97AAAD
+[scheduler] Scheduler stopped.
+[seed] Running bootstrap checks…
+[seed] Project Admin already exists (superadmin) — skipping.
+[seed] Bootstrap complete.
+
+✅  Server running → http://localhost:3000
+   Environment : development
+   Press Ctrl+C to stop.
+
+[scheduler] Lesson notification scheduler started (interval: 60s).
+[socket] connected: Super Admin (project_admin) | socketId: RJ4uRdh9UOuQhMmJAAAB
+[socket] disconnected: Super Admin | reason: transport close
+[socket] connected: Super Admin (project_admin) | socketId: LOXVGfqw_555dvFIAAAD
+[socket] disconnected: Super Admin | reason: transport close
+[socket] connected: Super Admin (project_admin) | socketId: TVwpRGerZ0qU6nQJAAAF
+[socket] disconnected: Super Admin | reason: transport close
+[socket] connected: Super Admin (project_admin) | socketId: ZbtmjDj1b5_a2-ZIAAAH
+[socket] disconnected: Super Admin | reason: client namespace disconnect
+[socket] connected: Super Admin (project_admin) | socketId: nDSZTVF3GVoOASG9AAAJ
+[socket] disconnected: Super Admin | reason: transport close
+[socket] connected: Super Admin (project_admin) | socketId: pfXIU-O9zyJFo26iAAAL
+[scheduler] Scheduler stopped.
+[seed] Running bootstrap checks…
+[seed] Project Admin already exists (superadmin) — skipping.
+[seed] Bootstrap complete.
+
+✅  Server running → http://localhost:3000
+   Environment : development
+   Press Ctrl+C to stop.
+
+[scheduler] Lesson notification scheduler started (interval: 60s).
+[socket] connected: Super Admin (project_admin) | socketId: IWq9UeYdPH3Bq4X2AAAB
+[socket] disconnected: Super Admin | reason: transport close
+[socket] connected: Super Admin (project_admin) | socketId: Ov61VoBkhrj8ebaeAAAD
+[socket] connected: Super Admin (project_admin) | socketId: gk_cnVql49llZLRjAAAF
+[socket] disconnected: Super Admin | reason: transport close
+[socket] connected: GRNOOOO (senior_admin) | socketId: OpuJFTdNzoupOE9xAAAH
+[socket] GRNOOOO joined realm room: c3ef7f9c-1d3e-4176-884d-5b746173e09c
+[socket] GRNOOOO joined 1 group room(s).
+[socket] connected: test2 (student) | socketId: uOxkUCbbWXHA8HNdAAAJ
+[socket] test2 joined realm room: c3ef7f9c-1d3e-4176-884d-5b746173e09c
+[socket] test2 joined 1 group room(s).
+[socket] disconnected: test2 | reason: transport close
+[socket] disconnected: GRNOOOO | reason: transport close
+[socket] disconnected: Super Admin | reason: transport close
+[scheduler] Scheduler stopped.
+[seed] Running bootstrap checks…
+[seed] Project Admin already exists (superadmin) — skipping.
+[seed] Bootstrap complete.
+
+✅  Server running → http://localhost:3000
+   Environment : development
+   Press Ctrl+C to stop.
+
+[scheduler] Lesson notification scheduler started (interval: 60s).
+[socket] connected: Super Admin (project_admin) | socketId: GZ-t0rqU-r1sNGdiAAAB
+[socket] disconnected: Super Admin | reason: transport close
+[socket] connected: Super Admin (project_admin) | socketId: pCHtwMHxZwO0BHfmAAAD
+[socket] connected: grno (senior_admin) | socketId: cPqP6UZtdFb55mVVAAAF
+[socket] grno joined realm room: dca95b17-aa1d-4f2f-8361-55b0b9c64cba
+[socket] grno joined 1 group room(s).
+[socket] connected: GRNOOOO (senior_admin) | socketId: QHAJGAJMorZSg4H3AAAH
+[socket] GRNOOOO joined realm room: c3ef7f9c-1d3e-4176-884d-5b746173e09c
+[socket] GRNOOOO joined 2 group room(s).
+[socket] disconnected: GRNOOOO | reason: client namespace disconnect
+[socket] connected: kyanq (student) | socketId: h3Sh89CQhyNfQORbAAAJ
+[socket] kyanq joined realm room: dca95b17-aa1d-4f2f-8361-55b0b9c64cba
+[socket] kyanq joined 1 group room(s).
+[socket] disconnected: kyanq | reason: transport close
+[socket] connected: kyanq (student) | socketId: Km-FYWjB67myu8GIAAAL
+[socket] kyanq joined realm room: dca95b17-aa1d-4f2f-8361-55b0b9c64cba
+[socket] kyanq joined 1 group room(s).
+[socket] disconnected: grno | reason: transport close
+[socket] connected: grno (senior_admin) | socketId: E-w1Cyhb_EAqwkhwAAAN
+[socket] grno joined realm room: dca95b17-aa1d-4f2f-8361-55b0b9c64cba
+[socket] grno joined 1 group room(s).
+[socket] disconnected: kyanq | reason: transport close
+[socket] connected: kyanq (student) | socketId: viLPzxlHxOp5pu96AAAP
+[socket] kyanq joined realm room: dca95b17-aa1d-4f2f-8361-55b0b9c64cba
+[socket] kyanq joined 1 group room(s).
+[socket] disconnected: grno | reason: transport close
+[socket] connected: grno (senior_admin) | socketId: U7Wi5b63A7_KAwRAAAAR
+[socket] grno joined realm room: dca95b17-aa1d-4f2f-8361-55b0b9c64cba
+[socket] grno joined 1 group room(s).
+[scheduler] Scheduler stopped.
+[seed] Running bootstrap checks…
+[seed] Project Admin already exists (superadmin) — skipping.
+[seed] Bootstrap complete.
+
+✅  Server running → http://localhost:3000
+   Environment : development
+   Press Ctrl+C to stop.
+
+[scheduler] Lesson notification scheduler started (interval: 60s).
+[socket] connected: grno (senior_admin) | socketId: 2QnsfIIM4OObE13NAAAB
+[socket] grno joined realm room: dca95b17-aa1d-4f2f-8361-55b0b9c64cba
+[socket] grno joined 1 group room(s).
+[socket] connected: kyanq (student) | socketId: n89zOXQhzDjLfDKOAAAD
+[socket] kyanq joined realm room: dca95b17-aa1d-4f2f-8361-55b0b9c64cba
+[socket] kyanq joined 1 group room(s).
+[socket] disconnected: grno | reason: transport close
+[scheduler] Scheduler stopped.
+[seed] Running bootstrap checks…
+[seed] Project Admin already exists (superadmin) — skipping.
+[seed] Bootstrap complete.
+
+✅  Server running → http://localhost:3000
+   Environment : development
+   Press Ctrl+C to stop.
+
+[scheduler] Lesson notification scheduler started (interval: 60s).
+[socket] connected: kyanq (student) | socketId: Uv8ALSGCMsEuGIDNAAAB
+[socket] kyanq joined realm room: dca95b17-aa1d-4f2f-8361-55b0b9c64cba
+[socket] kyanq joined 1 group room(s).
+[socket] connected: Super Admin (project_admin) | socketId: vM5qysyR-HVnwg9bAAAD
+[socket] disconnected: Super Admin | reason: transport close
+[socket] connected: Super Admin (project_admin) | socketId: Lv2Rfy31NPXCaf8TAAAF
+[socket] disconnected: kyanq | reason: transport close
+[socket] connected: kyanq (student) | socketId: bc_j7y1t3LkNpQemAAAH
+[socket] kyanq joined realm room: dca95b17-aa1d-4f2f-8361-55b0b9c64cba
+[socket] kyanq joined 1 group room(s).
+[socket] disconnected: kyanq | reason: transport close
+[socket] connected: kyanq (student) | socketId: SEAcLivdrxLR4uDKAAAJ
+[socket] kyanq joined realm room: dca95b17-aa1d-4f2f-8361-55b0b9c64cba
+[socket] kyanq joined 1 group room(s).
+[socket] disconnected: kyanq | reason: transport close
+[scheduler] Scheduler stopped.
+[seed] Running bootstrap checks…
+[seed] Project Admin created → username: "superadmin"
+[seed] ⚠  Change the default password via .env before going live!
+[seed] Bootstrap complete.
+
+✅  Server running → http://localhost:3000
+   Environment : development
+   Press Ctrl+C to stop.
+
+[scheduler] Lesson notification scheduler started (interval: 60s).
+[socket] connected: Super Admin (project_admin) | socketId: SBGJ6TGbop9ZzlzHAAAD
+[scheduler] Scheduler stopped.
