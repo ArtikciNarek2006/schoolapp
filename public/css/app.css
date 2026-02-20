@@ -476,7 +476,7 @@ svg { display: block; }
 .group-item .unread { background: var(--primary); color: #fff; border-radius: 999px; min-width: 18px; height: 18px; font-size: 0.65rem; font-weight: 700; display: flex; align-items: center; justify-content: center; padding: 0 4px; }
 
 /* Message thread */
-.message-screen { display: flex; flex-direction: column; height: calc(100dvh - var(--app-bar-h)); }
+.message-screen { display: flex; flex-direction: column; height: calc(100dvh - var(--app-bar-h) - var(--bottom-nav-h)); }
 .message-list {
   flex: 1;
   overflow-y: auto;
@@ -490,7 +490,9 @@ svg { display: block; }
 .msg-group .sender-name { font-size: 0.72rem; font-weight: 600; color: var(--text-2); padding: 0 4px; margin-bottom: 2px; }
 
 .bubble-wrap { display: flex; align-items: flex-end; gap: 8px; }
-.bubble-wrap.mine { flex-direction: row-reverse; }
+.bubble-wrap.mine { flex-direction: row-reverse; justify-content: flex-end; }
+.bubble-wrap.mine > div { display: flex; flex-direction: column; align-items: flex-end; max-width: 72%; }
+.bubble-wrap.mine .bubble { max-width: 100%; }
 
 .bubble {
   max-width: 72%;

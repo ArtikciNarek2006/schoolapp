@@ -13,6 +13,16 @@ const TimetableView = (() => {
   const DAY_LABELS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
   const WEEK_TYPES = ['odd', 'even'];
 
+  /** Compute today's ISO week parity to match backend getWeekType(). */
+  function _getWeekType() {
+    const d   = new Date();
+    const day = d.getUTCDay() || 7;
+    const thu = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate() + 4 - day));
+    const yr  = new Date(Date.UTC(thu.getUTCFullYear(), 0, 1));
+    const wk  = Math.ceil(((thu - yr) / 86400000 + 1) / 7);
+    return wk % 2 === 0 ? 'even' : 'odd';
+  }
+
   let _realmId = null;
   let _user    = null;
   let _ttData  = null;   // full timetable document (.schedule = { odd:{...}, even:{...} })
@@ -150,7 +160,7 @@ const TimetableView = (() => {
             ${p.subjectCode ? `<span class="chip" style="background:var(--surface-3);color:var(--text-2)">${esc(p.subjectCode)}</span>` : ''}
             ${isNow ? `<span class="chip chip-primary">Now ▶</span>` : ''}
           </div>
-          ${isToday && _user?.role === 'student' && p.attendanceRequired ? `
+          ${isToday && _user?.role === 'student' && p.attendanceRequired && p._weekType === _getWeekType() ? `
             <button class="checkin-btn" data-period-id="${p.id}">Check In</button>` : ''}
         </div>
         ${isSenior ? `<div style="display:flex;flex-direction:column;gap:4px;align-self:flex-start;padding-top:4px;">

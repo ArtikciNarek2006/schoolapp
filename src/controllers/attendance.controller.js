@@ -68,13 +68,26 @@ async function checkIn(req, res, next) {
       return res.status(HTTP.NOT_FOUND).json({ success: false, message: 'No timetable configured for this realm.' });
     }
 
-    const dayPeriods = tt.schedule?.[weekType]?.[dayName] || [];
-    const period     = dayPeriods.find((p) => p.id === periodId);
+    // Search both week types — timetable view shows odd+even periods together
+    let period = null;
+    let periodWeekType = null;
+    for (const wt of ['odd', 'even']) {
+      const p = (tt.schedule?.[wt]?.[dayName] || []).find((p) => p.id === periodId);
+      if (p) { period = p; periodWeekType = wt; break; }
+    }
 
     if (!period) {
       return res.status(HTTP.NOT_FOUND).json({
         success: false,
-        message: `Period "${periodId}" not found in today's (${weekType} week, ${dayName}) schedule.`,
+        message: `Period not found in today's schedule (${dayName}).`,
+      });
+    }
+
+    // Verify it's actually scheduled for this week
+    if (periodWeekType !== weekType) {
+      return res.status(HTTP.BAD_REQUEST).json({
+        success: false,
+        message: `This period is for ${periodWeekType} weeks — today is an ${weekType} week.`,
       });
     }
 
