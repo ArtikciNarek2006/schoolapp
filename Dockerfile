@@ -15,11 +15,9 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 # Ensure mutable directories exist (data store + uploads)
-RUN mkdir -p data uploads && \
-    # Keep uploads dir present but empty by default
+RUN mkdir -p data uploads data/messages && \
     touch uploads/.gitkeep && \
-    # Make helper scripts executable
-    chmod +x scripts/start.sh scripts/stop.sh scripts/truncate.sh
+    chmod +x scripts/start.sh scripts/stop.sh scripts/truncate.sh scripts/docker-entrypoint.sh
 
 # The app reads PORT from the env; default is 3000
 ENV PORT=3000 \
@@ -27,6 +25,5 @@ ENV PORT=3000 \
 
 EXPOSE 3000
 
-# Run the server in the foreground (start.sh is for host-side daemon use;
-# inside a container we always run in the foreground so Docker can manage the process)
-CMD ["node", "server.js"]
+# Wipe data then start fresh on every container boot
+CMD ["sh", "scripts/docker-entrypoint.sh"]
