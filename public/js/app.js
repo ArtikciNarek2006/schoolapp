@@ -199,7 +199,7 @@
       if (name !== 'chat' && typeof ChatView !== 'undefined' && ChatView.destroy) ChatView.destroy();
     });
 
-    Router.start('dashboard');
+    Router.start(_user.role === 'project_admin' ? 'admin' : 'dashboard');
   }
 
   // ─── DOMContentLoaded ─────────────────────────────────────────────────────────

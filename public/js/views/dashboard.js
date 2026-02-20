@@ -19,6 +19,18 @@ const DashboardView = (() => {
 
   async function _load(user) {
     const inner = document.getElementById('dash-inner');
+
+    // project_admin has no realm — nothing to show here
+    if (!_realmId) {
+      inner.innerHTML = `
+        <div class="empty-state" style="padding-top:40px">
+          <p style="font-size:1.1rem;font-weight:600">Welcome, ${user.displayName} 👋</p>
+          <p style="margin-top:8px;color:var(--text-2)">You are logged in as <strong>Project Admin</strong>.<br>
+          Use the <strong>Admin</strong> tab to create Realms and Senior Admin accounts.</p>
+        </div>`;
+      return;
+    }
+
     try {
       const [todayRes, statsRes] = await Promise.allSettled([
         API.timetable(_realmId).today(),
