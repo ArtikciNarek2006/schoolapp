@@ -1,25 +1,5 @@
 [
   {
-    "_comment": "─────────────────────────────────────────────────────────────────",
-    "_schema": "Timetable",
-    "_description": [
-      "One timetable document per realm.",
-      "The schedule is split into 'odd' and 'even' week keys.",
-      "Each week key contains the 7 days of the week.",
-      "Each day contains an ordered array of Period objects.",
-      "",
-      "Period fields:",
-      "  id           – unique within the realm (used as FK in attendance)",
-      "  subjectCode  – short code displayed on mobile (e.g. 'MATH')",
-      "  subjectName  – full name for desktop/detail view",
-      "  teacher      – display name of the teacher",
-      "  room         – room/location string",
-      "  startTime    – 24-h 'HH:MM' local time (timezone from realm settings)",
-      "  endTime      – 24-h 'HH:MM' local time",
-      "  attendanceRequired – boolean; if false no check-in is tracked"
-    ]
-  },
-  {
     "id": "tt_realm_001",
     "realmId": "realm_001",
     "createdBy": "user_002",
@@ -217,5 +197,32 @@
         "sunday": []
       }
     }
+  },
+  {
+    "id": "459c988e-2f64-4e28-b400-8d35dcb8f298",
+    "realmId": "078d5839-0261-40c7-87b2-f858f3a4b7ac",
+    "createdBy": "4cbd1528-b1af-42b1-a877-aada293ae43a",
+    "schedule": {
+      "odd": {
+        "monday": [],
+        "tuesday": [],
+        "wednesday": [],
+        "thursday": [],
+        "friday": [],
+        "saturday": [],
+        "sunday": []
+      },
+      "even": {
+        "monday": [],
+        "tuesday": [],
+        "wednesday": [],
+        "thursday": [],
+        "friday": [],
+        "saturday": [],
+        "sunday": []
+      }
+    },
+    "createdAt": "2026-02-20T06:36:31.677Z",
+    "updatedAt": "2026-02-20T06:41:22.449Z"
   }
 ]

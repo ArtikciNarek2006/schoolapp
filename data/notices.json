@@ -1,19 +1,5 @@
 [
   {
-    "_comment": "─────────────────────────────────────────────────────────────────",
-    "_schema": "Notice",
-    "_description": [
-      "Pinned notices written by senior_admin and readable by all realm users.",
-      "Notices appear on the timetable dashboard as announcements.",
-      "They are NOT chat messages — they are persistent board posts.",
-      "",
-      "priority: 'normal' | 'important' | 'urgent'",
-      "          Drives visual styling (colour-coded chips in the UI).",
-      "expiresAt: optional ISO DateTime after which the notice is auto-hidden.",
-      "           null means it stays until manually deleted."
-    ]
-  },
-  {
     "id": "notice_001",
     "realmId": "realm_001",
     "title": "Exam Schedule — March 2026",

@@ -1,24 +1,5 @@
 [
   {
-    "_comment": "─────────────────────────────────────────────────────────────────",
-    "_schema": "AttendanceRecord",
-    "_description": [
-      "One document per (student × date × period) combination.",
-      "Using flat records (rather than nesting) keeps queries simple with",
-      "Array.filter() — no deep traversal needed.",
-      "",
-      "Fields:",
-      "  id         – uuid v4",
-      "  realmId    – scope guard",
-      "  userId     – the student",
-      "  date       – ISO date string 'YYYY-MM-DD' (local date, no TZ offset)",
-      "  weekType   – 'odd' | 'even' (resolved at write time by the server)",
-      "  periodId   – FK → timetable period id",
-      "  status     – 'present' | 'absent' | 'pending'",
-      "  checkedInAt – ISO DateTime when the student pressed check-in (null if absent)"
-    ]
-  },
-  {
     "id": "att_0001",
     "realmId": "realm_001",
     "userId": "user_003",
@@ -47,5 +28,29 @@
     "periodId": "period_odd_mon_1",
     "status": "present",
     "checkedInAt": "2026-02-16T08:02:10.000Z"
+  },
+  {
+    "id": "13f74f79-8fbd-41e9-9bfc-9819a2a8b87d",
+    "realmId": "078d5839-0261-40c7-87b2-f858f3a4b7ac",
+    "userId": "0c6b564c-3550-4f3b-bcc1-0cea2d0088a9",
+    "date": "2026-02-20",
+    "weekType": "even",
+    "periodId": "64193bce-6928-4eac-b86a-325f9ff43faa",
+    "status": "present",
+    "checkedInAt": "2026-02-20T06:41:10.893Z",
+    "createdAt": "2026-02-20T06:41:10.895Z",
+    "updatedAt": "2026-02-20T06:41:10.895Z"
+  },
+  {
+    "id": "5e2a3ecc-bba1-4d63-9afe-da0bba656974",
+    "realmId": "078d5839-0261-40c7-87b2-f858f3a4b7ac",
+    "userId": "0c6b564c-3550-4f3b-bcc1-0cea2d0088a9",
+    "date": "2026-02-20",
+    "weekType": "even",
+    "periodId": "fd7a1123-6a53-4135-82d4-fb7f6437bf33",
+    "status": "present",
+    "checkedInAt": "2026-02-20T06:41:22.402Z",
+    "createdAt": "2026-02-20T06:41:22.403Z",
+    "updatedAt": "2026-02-20T06:41:22.403Z"
   }
 ]

@@ -34,9 +34,9 @@
     "displayName": "Teacher Two",
     "avatar": null,
     "isActive": true,
-    "lastLoginAt": "2026-02-20T06:26:06.242Z",
+    "lastLoginAt": "2026-02-20T06:41:21.877Z",
     "createdAt": "2026-02-20T06:24:20.420Z",
-    "updatedAt": "2026-02-20T06:26:06.245Z"
+    "updatedAt": "2026-02-20T06:41:21.879Z"
   },
   {
     "id": "0c6b564c-3550-4f3b-bcc1-0cea2d0088a9",
@@ -47,8 +47,8 @@
     "displayName": "Bob Student",
     "avatar": null,
     "isActive": true,
-    "lastLoginAt": "2026-02-20T06:26:33.757Z",
+    "lastLoginAt": "2026-02-20T06:41:22.369Z",
     "createdAt": "2026-02-20T06:26:06.881Z",
-    "updatedAt": "2026-02-20T06:26:33.759Z"
+    "updatedAt": "2026-02-20T06:41:22.370Z"
   }
 ]
