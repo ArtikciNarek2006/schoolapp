@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+
+# Environment
+.env
+
+# Uploaded user files (keep the folder, ignore contents)
+uploads/*
+!uploads/.gitkeep
+
+# OS artefacts
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/settings.json
+*.swp
+
+# Environment variables
+.env
+.env.test
+
+# Logs and diagnostic reports
+npm-debug.log*
+yarn-debug.log*
+lerna-debug.log*
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional caches
+.npm
+.eslintcache
+.cache
+.parcel-cache
+.next
+out
+.nuxt
+dist

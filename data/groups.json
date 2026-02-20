@@ -1,0 +1,103 @@
+[
+  {
+    "id": "group_001",
+    "realmId": "realm_001",
+    "name": "General — 10B",
+    "description": "Realm-wide general channel for Class 10B.",
+    "type": "general",
+    "avatar": null,
+    "createdBy": "user_002",
+    "adminIds": [
+      "user_002"
+    ],
+    "memberIds": [
+      "user_002",
+      "user_003",
+      "user_004"
+    ],
+    "pinnedMessageIds": [],
+    "isArchived": false,
+    "createdAt": "2025-09-01T08:10:00.000Z",
+    "updatedAt": "2025-09-01T08:10:00.000Z"
+  },
+  {
+    "id": "group_002",
+    "realmId": "realm_001",
+    "name": "Lab Flow",
+    "description": "Mandatory group for lab coordination. You cannot leave this group.",
+    "type": "mandatory",
+    "avatar": null,
+    "createdBy": "user_002",
+    "adminIds": [
+      "user_002"
+    ],
+    "memberIds": [
+      "user_002",
+      "user_003",
+      "user_004"
+    ],
+    "pinnedMessageIds": [],
+    "isArchived": false,
+    "createdAt": "2025-09-02T09:00:00.000Z",
+    "updatedAt": "2025-09-02T09:00:00.000Z"
+  },
+  {
+    "id": "group_003",
+    "realmId": "realm_001",
+    "name": "Study Squad",
+    "description": "Voluntary group created by students for shared study sessions.",
+    "type": "voluntary",
+    "avatar": null,
+    "createdBy": "user_003",
+    "adminIds": [
+      "user_003"
+    ],
+    "memberIds": [
+      "user_003",
+      "user_004"
+    ],
+    "pinnedMessageIds": [],
+    "isArchived": false,
+    "createdAt": "2025-09-03T14:00:00.000Z",
+    "updatedAt": "2025-09-03T14:00:00.000Z"
+  },
+  {
+    "id": "fc1a534e-f45d-4a89-a474-f4d51e1d94c0",
+    "realmId": "2a9865bf-2c41-4e42-a7fd-a8609615d510",
+    "name": "General — Test School — Class 1A",
+    "description": "Realm-wide general channel for Test School — Class 1A.",
+    "type": "general",
+    "avatar": null,
+    "createdBy": "299fc619-992b-49a1-a8ba-2d102fed3b07",
+    "adminIds": [
+      "299fc619-992b-49a1-a8ba-2d102fed3b07"
+    ],
+    "memberIds": [
+      "299fc619-992b-49a1-a8ba-2d102fed3b07"
+    ],
+    "pinnedMessageIds": [],
+    "isArchived": false,
+    "createdAt": "2026-02-20T06:23:37.867Z",
+    "updatedAt": "2026-02-20T06:23:37.867Z"
+  },
+  {
+    "id": "3decbe58-6418-47c2-84fa-69477ab55085",
+    "realmId": "078d5839-0261-40c7-87b2-f858f3a4b7ac",
+    "name": "General — Test School Class 2B",
+    "description": "Realm-wide general channel for Test School Class 2B.",
+    "type": "general",
+    "avatar": null,
+    "createdBy": "4cbd1528-b1af-42b1-a877-aada293ae43a",
+    "adminIds": [
+      "4cbd1528-b1af-42b1-a877-aada293ae43a"
+    ],
+    "memberIds": [
+      "4cbd1528-b1af-42b1-a877-aada293ae43a",
+      "0c6b564c-3550-4f3b-bcc1-0cea2d0088a9"
+    ],
+    "pinnedMessageIds": [],
+    "isArchived": false,
+    "createdAt": "2026-02-20T06:24:20.420Z",
+    "updatedAt": "2026-02-20T06:26:06.882Z"
+  }
+]

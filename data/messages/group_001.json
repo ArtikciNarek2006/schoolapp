@@ -1,0 +1,83 @@
+[
+  {
+    "_comment": "─────────────────────────────────────────────────────────────────",
+    "_schema": "Message",
+    "_description": [
+      "Each group has its own message file: data/messages/{groupId}.json",
+      "Keeping messages in separate files prevents loading all chat history",
+      "into memory when only group metadata is needed.",
+      "",
+      "type: 'text'   – plain text message",
+      "type: 'image'  – image upload; fileUrl points to /uploads/<filename>",
+      "                 The UI renders an <img> tag for inline preview.",
+      "type: 'file'   – generic file upload; fileUrl used for download link.",
+      "                 If mime type is application/pdf the browser opens it natively.",
+      "type: 'system' – server-generated (join/leave events). senderId is null.",
+      "",
+      "deletedAt: soft-delete timestamp. If set, UI shows 'Message deleted'.",
+      "           The record is kept to preserve reply threading references.",
+      "replyToId: optional FK to a parent message in the same group.",
+      "readBy:    array of userIds who have seen the message (for read receipts)."
+    ]
+  },
+  {
+    "id": "msg_0001",
+    "groupId": "group_001",
+    "realmId": "realm_001",
+    "senderId": "user_002",
+    "type": "system",
+    "content": "Welcome to the General channel for Class 10B!",
+    "fileUrl": null,
+    "fileName": null,
+    "fileMime": null,
+    "replyToId": null,
+    "readBy": ["user_002", "user_003", "user_004"],
+    "deletedAt": null,
+    "createdAt": "2025-09-01T08:10:01.000Z"
+  },
+  {
+    "id": "msg_0002",
+    "groupId": "group_001",
+    "realmId": "realm_001",
+    "senderId": "user_002",
+    "type": "text",
+    "content": "Good morning everyone! Please check the notice board for the exam schedule.",
+    "fileUrl": null,
+    "fileName": null,
+    "fileMime": null,
+    "replyToId": null,
+    "readBy": ["user_002", "user_003"],
+    "deletedAt": null,
+    "createdAt": "2026-02-10T11:05:00.000Z"
+  },
+  {
+    "id": "msg_0003",
+    "groupId": "group_001",
+    "realmId": "realm_001",
+    "senderId": "user_003",
+    "type": "text",
+    "content": "Thanks Ms. Johnson! Will do.",
+    "fileUrl": null,
+    "fileName": null,
+    "fileMime": null,
+    "replyToId": "msg_0002",
+    "readBy": ["user_003", "user_002"],
+    "deletedAt": null,
+    "createdAt": "2026-02-10T11:07:30.000Z"
+  },
+  {
+    "id": "msg_0004",
+    "groupId": "group_001",
+    "realmId": "realm_001",
+    "senderId": "user_003",
+    "type": "image",
+    "content": "Check out my notes from today's science class!",
+    "fileUrl": "/uploads/sample_notes.png",
+    "fileName": "sample_notes.png",
+    "fileMime": "image/png",
+    "replyToId": null,
+    "readBy": ["user_003"],
+    "deletedAt": null,
+    "createdAt": "2026-02-16T14:20:00.000Z"
+  }
+]

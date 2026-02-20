@@ -1,0 +1,54 @@
+[
+  {
+    "id": "5cd277d2-1bd7-4648-baf7-92c5e46e4070",
+    "realmId": null,
+    "username": "superadmin",
+    "passwordHash": "$2a$12$CoFmxJyd3BUdqyaip204COuEQSqJSYKhSsHjhd/5zcN3IxTyr5Sou",
+    "role": "project_admin",
+    "displayName": "Super Admin",
+    "avatar": null,
+    "isActive": true,
+    "lastLoginAt": "2026-02-20T06:26:05.697Z",
+    "createdAt": "2026-02-20T06:23:07.592Z",
+    "updatedAt": "2026-02-20T06:26:05.709Z"
+  },
+  {
+    "id": "299fc619-992b-49a1-a8ba-2d102fed3b07",
+    "realmId": "2a9865bf-2c41-4e42-a7fd-a8609615d510",
+    "username": "teacher.one",
+    "passwordHash": "$2a$12$ewtlS1qKYscMjcr7/SQEV.cDodqwy2zeHTCG1a9Yrx/HQGtIjT4cO",
+    "role": "senior_admin",
+    "displayName": "Teacher One",
+    "avatar": null,
+    "isActive": true,
+    "lastLoginAt": null,
+    "createdAt": "2026-02-20T06:23:37.866Z",
+    "updatedAt": "2026-02-20T06:23:37.866Z"
+  },
+  {
+    "id": "4cbd1528-b1af-42b1-a877-aada293ae43a",
+    "realmId": "078d5839-0261-40c7-87b2-f858f3a4b7ac",
+    "username": "teacher.two",
+    "passwordHash": "$2a$12$P.y2eG2XVuANKSl/AakjMuDTz38QxX4rd.JW6lckJeDUX89YPUWo2",
+    "role": "senior_admin",
+    "displayName": "Teacher Two",
+    "avatar": null,
+    "isActive": true,
+    "lastLoginAt": "2026-02-20T06:26:06.242Z",
+    "createdAt": "2026-02-20T06:24:20.420Z",
+    "updatedAt": "2026-02-20T06:26:06.245Z"
+  },
+  {
+    "id": "0c6b564c-3550-4f3b-bcc1-0cea2d0088a9",
+    "realmId": "078d5839-0261-40c7-87b2-f858f3a4b7ac",
+    "username": "bob.student",
+    "passwordHash": "$2a$12$KtlmQyPUzslFCmn7hFGOdurEd1nGxlDzp2P.nFmz8D/KwQNUCR0Sq",
+    "role": "student",
+    "displayName": "Bob Student",
+    "avatar": null,
+    "isActive": true,
+    "lastLoginAt": "2026-02-20T06:26:33.757Z",
+    "createdAt": "2026-02-20T06:26:06.881Z",
+    "updatedAt": "2026-02-20T06:26:33.759Z"
+  }
+]

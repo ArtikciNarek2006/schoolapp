@@ -1,0 +1,221 @@
+[
+  {
+    "_comment": "─────────────────────────────────────────────────────────────────",
+    "_schema": "Timetable",
+    "_description": [
+      "One timetable document per realm.",
+      "The schedule is split into 'odd' and 'even' week keys.",
+      "Each week key contains the 7 days of the week.",
+      "Each day contains an ordered array of Period objects.",
+      "",
+      "Period fields:",
+      "  id           – unique within the realm (used as FK in attendance)",
+      "  subjectCode  – short code displayed on mobile (e.g. 'MATH')",
+      "  subjectName  – full name for desktop/detail view",
+      "  teacher      – display name of the teacher",
+      "  room         – room/location string",
+      "  startTime    – 24-h 'HH:MM' local time (timezone from realm settings)",
+      "  endTime      – 24-h 'HH:MM' local time",
+      "  attendanceRequired – boolean; if false no check-in is tracked"
+    ]
+  },
+  {
+    "id": "tt_realm_001",
+    "realmId": "realm_001",
+    "createdBy": "user_002",
+    "updatedAt": "2025-09-01T10:00:00.000Z",
+    "schedule": {
+      "odd": {
+        "monday": [
+          {
+            "id": "period_odd_mon_1",
+            "subjectCode": "MATH",
+            "subjectName": "Mathematics",
+            "teacher": "Mr. Carter",
+            "room": "Room 101",
+            "startTime": "08:00",
+            "endTime": "08:45",
+            "attendanceRequired": true
+          },
+          {
+            "id": "period_odd_mon_2",
+            "subjectCode": "ENG",
+            "subjectName": "English Literature",
+            "teacher": "Ms. Johnson",
+            "room": "Room 102",
+            "startTime": "09:00",
+            "endTime": "09:45",
+            "attendanceRequired": true
+          },
+          {
+            "id": "period_odd_mon_3",
+            "subjectCode": "BREAK",
+            "subjectName": "Morning Break",
+            "teacher": null,
+            "room": null,
+            "startTime": "09:45",
+            "endTime": "10:00",
+            "attendanceRequired": false
+          },
+          {
+            "id": "period_odd_mon_4",
+            "subjectCode": "SCI",
+            "subjectName": "Science",
+            "teacher": "Dr. Patel",
+            "room": "Lab 1",
+            "startTime": "10:00",
+            "endTime": "10:45",
+            "attendanceRequired": true
+          },
+          {
+            "id": "period_odd_mon_5",
+            "subjectCode": "HIST",
+            "subjectName": "History",
+            "teacher": "Mrs. Lee",
+            "room": "Room 105",
+            "startTime": "11:00",
+            "endTime": "11:45",
+            "attendanceRequired": true
+          },
+          {
+            "id": "period_odd_mon_6",
+            "subjectCode": "LUNCH",
+            "subjectName": "Lunch",
+            "teacher": null,
+            "room": null,
+            "startTime": "12:00",
+            "endTime": "13:00",
+            "attendanceRequired": false
+          },
+          {
+            "id": "period_odd_mon_7",
+            "subjectCode": "PE",
+            "subjectName": "Physical Education",
+            "teacher": "Coach Brown",
+            "room": "Gym",
+            "startTime": "13:00",
+            "endTime": "13:45",
+            "attendanceRequired": true
+          }
+        ],
+        "tuesday": [
+          {
+            "id": "period_odd_tue_1",
+            "subjectCode": "ART",
+            "subjectName": "Art & Design",
+            "teacher": "Ms. Rivera",
+            "room": "Art Room",
+            "startTime": "08:00",
+            "endTime": "08:45",
+            "attendanceRequired": true
+          },
+          {
+            "id": "period_odd_tue_2",
+            "subjectCode": "MATH",
+            "subjectName": "Mathematics",
+            "teacher": "Mr. Carter",
+            "room": "Room 101",
+            "startTime": "09:00",
+            "endTime": "09:45",
+            "attendanceRequired": true
+          },
+          {
+            "id": "period_odd_tue_3",
+            "subjectCode": "BREAK",
+            "subjectName": "Morning Break",
+            "teacher": null,
+            "room": null,
+            "startTime": "09:45",
+            "endTime": "10:00",
+            "attendanceRequired": false
+          },
+          {
+            "id": "period_odd_tue_4",
+            "subjectCode": "CS",
+            "subjectName": "Computer Science",
+            "teacher": "Mr. Singh",
+            "room": "IT Lab",
+            "startTime": "10:00",
+            "endTime": "10:45",
+            "attendanceRequired": true
+          },
+          {
+            "id": "period_odd_tue_5",
+            "subjectCode": "ENG",
+            "subjectName": "English Literature",
+            "teacher": "Ms. Johnson",
+            "room": "Room 102",
+            "startTime": "11:00",
+            "endTime": "11:45",
+            "attendanceRequired": true
+          }
+        ],
+        "wednesday": [],
+        "thursday": [],
+        "friday": [],
+        "saturday": [],
+        "sunday": []
+      },
+      "even": {
+        "monday": [
+          {
+            "id": "period_even_mon_1",
+            "subjectCode": "CS",
+            "subjectName": "Computer Science",
+            "teacher": "Mr. Singh",
+            "room": "IT Lab",
+            "startTime": "08:00",
+            "endTime": "08:45",
+            "attendanceRequired": true
+          },
+          {
+            "id": "period_even_mon_2",
+            "subjectCode": "SCI",
+            "subjectName": "Science",
+            "teacher": "Dr. Patel",
+            "room": "Lab 1",
+            "startTime": "09:00",
+            "endTime": "09:45",
+            "attendanceRequired": true
+          },
+          {
+            "id": "period_even_mon_3",
+            "subjectCode": "BREAK",
+            "subjectName": "Morning Break",
+            "teacher": null,
+            "room": null,
+            "startTime": "09:45",
+            "endTime": "10:00",
+            "attendanceRequired": false
+          },
+          {
+            "id": "period_even_mon_4",
+            "subjectCode": "MATH",
+            "subjectName": "Mathematics",
+            "teacher": "Mr. Carter",
+            "room": "Room 101",
+            "startTime": "10:00",
+            "endTime": "10:45",
+            "attendanceRequired": true
+          },
+          {
+            "id": "period_even_mon_5",
+            "subjectCode": "ART",
+            "subjectName": "Art & Design",
+            "teacher": "Ms. Rivera",
+            "room": "Art Room",
+            "startTime": "11:00",
+            "endTime": "11:45",
+            "attendanceRequired": true
+          }
+        ],
+        "tuesday": [],
+        "wednesday": [],
+        "thursday": [],
+        "friday": [],
+        "saturday": [],
+        "sunday": []
+      }
+    }
+  }
+]

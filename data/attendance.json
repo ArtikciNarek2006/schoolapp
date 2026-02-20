@@ -1,0 +1,51 @@
+[
+  {
+    "_comment": "─────────────────────────────────────────────────────────────────",
+    "_schema": "AttendanceRecord",
+    "_description": [
+      "One document per (student × date × period) combination.",
+      "Using flat records (rather than nesting) keeps queries simple with",
+      "Array.filter() — no deep traversal needed.",
+      "",
+      "Fields:",
+      "  id         – uuid v4",
+      "  realmId    – scope guard",
+      "  userId     – the student",
+      "  date       – ISO date string 'YYYY-MM-DD' (local date, no TZ offset)",
+      "  weekType   – 'odd' | 'even' (resolved at write time by the server)",
+      "  periodId   – FK → timetable period id",
+      "  status     – 'present' | 'absent' | 'pending'",
+      "  checkedInAt – ISO DateTime when the student pressed check-in (null if absent)"
+    ]
+  },
+  {
+    "id": "att_0001",
+    "realmId": "realm_001",
+    "userId": "user_003",
+    "date": "2026-02-16",
+    "weekType": "odd",
+    "periodId": "period_odd_mon_1",
+    "status": "present",
+    "checkedInAt": "2026-02-16T07:58:22.000Z"
+  },
+  {
+    "id": "att_0002",
+    "realmId": "realm_001",
+    "userId": "user_003",
+    "date": "2026-02-16",
+    "weekType": "odd",
+    "periodId": "period_odd_mon_2",
+    "status": "absent",
+    "checkedInAt": null
+  },
+  {
+    "id": "att_0003",
+    "realmId": "realm_001",
+    "userId": "user_004",
+    "date": "2026-02-16",
+    "weekType": "odd",
+    "periodId": "period_odd_mon_1",
+    "status": "present",
+    "checkedInAt": "2026-02-16T08:02:10.000Z"
+  }
+]

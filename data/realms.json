@@ -1,0 +1,59 @@
+[
+  {
+    "id": "realm_001",
+    "name": "Springfield High — Class 10B",
+    "code": "SH-10B",
+    "description": "Main realm for Class 10B of Springfield High School.",
+    "status": "active",
+    "seniorAdminId": "user_002",
+    "settings": {
+      "maxAbsences": 5,
+      "timezone": "Europe/London",
+      "academicYear": "2025-2026",
+      "semesterStart": "2025-09-01",
+      "semesterEnd": "2026-06-30",
+      "allowStudentVoluntaryGroups": true,
+      "notifyMinutesBefore": 5
+    },
+    "createdAt": "2025-09-01T08:00:00.000Z",
+    "updatedAt": "2025-09-01T08:00:00.000Z"
+  },
+  {
+    "id": "2a9865bf-2c41-4e42-a7fd-a8609615d510",
+    "name": "Test School — Class 1A",
+    "code": "TS-1A",
+    "description": "",
+    "status": "active",
+    "seniorAdminId": "299fc619-992b-49a1-a8ba-2d102fed3b07",
+    "settings": {
+      "maxAbsences": 5,
+      "timezone": "UTC",
+      "academicYear": "",
+      "semesterStart": "2026-01-01",
+      "semesterEnd": "2026-06-30",
+      "allowStudentVoluntaryGroups": true,
+      "notifyMinutesBefore": 5
+    },
+    "createdAt": "2026-02-20T06:23:37.866Z",
+    "updatedAt": "2026-02-20T06:23:37.866Z"
+  },
+  {
+    "id": "078d5839-0261-40c7-87b2-f858f3a4b7ac",
+    "name": "Test School Class 2B",
+    "code": "TS-2B",
+    "description": "",
+    "status": "active",
+    "seniorAdminId": "4cbd1528-b1af-42b1-a877-aada293ae43a",
+    "settings": {
+      "maxAbsences": 5,
+      "timezone": "UTC",
+      "academicYear": "",
+      "semesterStart": "2026-01-01",
+      "semesterEnd": "2026-06-30",
+      "allowStudentVoluntaryGroups": true,
+      "notifyMinutesBefore": 5
+    },
+    "createdAt": "2026-02-20T06:24:20.420Z",
+    "updatedAt": "2026-02-20T06:24:20.420Z"
+  }
+]

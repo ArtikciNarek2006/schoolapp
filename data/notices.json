@@ -1,0 +1,38 @@
+[
+  {
+    "_comment": "─────────────────────────────────────────────────────────────────",
+    "_schema": "Notice",
+    "_description": [
+      "Pinned notices written by senior_admin and readable by all realm users.",
+      "Notices appear on the timetable dashboard as announcements.",
+      "They are NOT chat messages — they are persistent board posts.",
+      "",
+      "priority: 'normal' | 'important' | 'urgent'",
+      "          Drives visual styling (colour-coded chips in the UI).",
+      "expiresAt: optional ISO DateTime after which the notice is auto-hidden.",
+      "           null means it stays until manually deleted."
+    ]
+  },
+  {
+    "id": "notice_001",
+    "realmId": "realm_001",
+    "title": "Exam Schedule — March 2026",
+    "body": "The mid-term examinations will begin on Monday 2nd March. Please review the full schedule pinned in the Lab Flow group. All students must arrive 10 minutes early.",
+    "priority": "important",
+    "createdBy": "user_002",
+    "expiresAt": "2026-03-15T23:59:59.000Z",
+    "createdAt": "2026-02-10T11:00:00.000Z",
+    "updatedAt": "2026-02-10T11:00:00.000Z"
+  },
+  {
+    "id": "notice_002",
+    "realmId": "realm_001",
+    "title": "Lab Safety Refresher",
+    "body": "All students are required to complete the online lab safety quiz before Friday. Link shared in the Lab Flow group.",
+    "priority": "normal",
+    "createdBy": "user_002",
+    "expiresAt": null,
+    "createdAt": "2026-02-18T09:30:00.000Z",
+    "updatedAt": "2026-02-18T09:30:00.000Z"
+  }
+]
