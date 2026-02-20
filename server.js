@@ -17,6 +17,16 @@
 // ── 1. Environment ─────────────────────────────────────────────────────────────
 require('dotenv').config();
 
+// Fail immediately if required secrets are missing (common Docker misconfiguration)
+const REQUIRED_ENV = ['JWT_SECRET'];
+const missingEnv = REQUIRED_ENV.filter((k) => !process.env[k]);
+if (missingEnv.length) {
+  console.error('\n[FATAL] Missing required environment variables:', missingEnv.join(', '));
+  console.error('[FATAL] In Docker, pass them via --env-file .env or -e JWT_SECRET=...');
+  console.error('[FATAL] Copy .env.example to .env and fill in the values.\n');
+  process.exit(1);
+}
+
 const http    = require('http');
 const path    = require('path');
 const express = require('express');
@@ -71,6 +81,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // ── 3. API Routes ──────────────────────────────────────────────────────────────
 app.use('/api/auth',   authRoutes);
 app.use('/api/realms', realmRoutes);
+
+// Health check — used by Docker / load-balancers
+app.get('/api/health', (_req, res) => {
+  res.json({ status: 'ok', uptime: Math.floor(process.uptime()), env: process.env.NODE_ENV || 'development' });
+});
 
 // Nested realm sub-resources  (mergeParams: true on each router)
 app.use('/api/realms/:realmId/users',      userRoutes);

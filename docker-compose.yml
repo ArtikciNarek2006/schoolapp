@@ -1,0 +1,35 @@
+services:
+  app:
+    image: mymobileapp:latest          # build locally: docker build -t mymobileapp:latest .
+    # build: .                         # uncomment to build+run in one step: docker compose up --build
+    container_name: mymobileapp
+    restart: unless-stopped
+
+    # ── Environment ──────────────────────────────────────────────────────────────
+    # Reads every variable from .env (the file is never copied into the image).
+    # Override individual values with the `environment:` block below.
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+
+    # ── Ports ────────────────────────────────────────────────────────────────────
+    # Expose only to localhost so Nginx/Caddy reverse proxy handles TLS.
+    # Change to "3000:3000" if you want direct public access.
+    ports:
+      - "127.0.0.1:3000:3000"
+
+    # ── Volumes ──────────────────────────────────────────────────────────────────
+    # Persist JSON data store and uploaded files outside the container.
+    volumes:
+      - ./data:/app/data
+      - ./uploads:/app/uploads
+
+    # ── Health check ─────────────────────────────────────────────────────────────
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
