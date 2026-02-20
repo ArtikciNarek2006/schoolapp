@@ -92,7 +92,7 @@ const API = (() => {
     myAnalytics:   ()          => get(`/realms/${realmId}/attendance/me/analytics`),
     userAnalytics: (uid)       => get(`/realms/${realmId}/attendance/${uid}/analytics`),
     list:          (q)         => get(`/realms/${realmId}/attendance`, q),
-    todayRegister: ()          => get(`/realms/${realmId}/attendance/today-register`),
+    todayRegister: ()          => get(`/realms/${realmId}/attendance/today`),
   });
 
   // ── Notices ─────────────────────────────────────────────────────────────────

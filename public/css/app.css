@@ -267,9 +267,11 @@ svg { display: block; }
   border-radius: var(--radius-sm);
   font-size: 0.88rem;
   box-shadow: var(--shadow-md);
-  animation: toastIn .2s ease;
   pointer-events: auto;
+  opacity: 0;
+  transition: opacity .2s;
 }
+.toast.show { opacity: 1; animation: toastIn .2s ease; }
 .toast.success { background: var(--success); }
 .toast.danger  { background: var(--danger); }
 .toast.warning { background: var(--warning); }

@@ -76,7 +76,7 @@
 
     toast(message, type = 'info') {
       if (!_toast) return;
-      _toast.className  = `toast toast-${type} show`;
+      _toast.className  = `toast ${type} show`;
       _toast.textContent = message;
       if (_toastTimer) clearTimeout(_toastTimer);
       _toastTimer = setTimeout(() => _toast.classList.remove('show'), 3200);
@@ -99,7 +99,7 @@
         <div class="modal-body">${body}</div>
         ${footer}`;
 
-      _overlay.classList.add('show');
+      _overlay.classList.remove('hidden');
 
       // Wire action buttons
       if (onAction) {
@@ -119,7 +119,7 @@
     },
 
     closeModal() {
-      if (_overlay) _overlay.classList.remove('show');
+      if (_overlay) _overlay.classList.add('hidden');
       if (_modal) _modal.innerHTML = '';
       _overlay.onclick = null;
     },
