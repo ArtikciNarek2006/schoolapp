@@ -179,7 +179,6 @@ const AdminView = (() => {
           <div class="form-group"><label class="form-label">Role</label>
             <select class="form-input" id="au-role">
               <option value="student">Student</option>
-              <option value="senior_admin">Senior Admin</option>
             </select>
           </div>
         </div>`,

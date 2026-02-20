@@ -25,7 +25,7 @@ const DashboardView = (() => {
         API.attendance(_realmId).myAnalytics(),
       ]);
 
-      const today     = todayRes.status === 'fulfilled' ? todayRes.value  : null;
+      const today     = todayRes.status === 'fulfilled' ? todayRes.value.data  : null;
       const stats     = statsRes.status === 'fulfilled' ? statsRes.value.data : null;
       const dow       = new Date().toLocaleDateString('en-US', { weekday: 'long' });
       const dateStr   = new Date().toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' });
@@ -38,7 +38,7 @@ const DashboardView = (() => {
         </div>
 
         ${stats ? _statsHtml(stats) : ''}
-        ${stats?.atRisk ? `<div class="at-risk-banner">⚠ Attendance below threshold — ${stats.presentPct}% present</div>` : ''}
+        ${stats?.atRisk ? `<div class="at-risk-banner">⚠ Attendance below 80% — ${Math.round(((stats.totalPresent||0)/Math.max(1,(stats.totalPresent||0)+(stats.totalAbsent||0)))*100)}% present</div>` : ''}
 
         <div>
           <div class="section-header" style="padding-left:0;padding-right:0;">
@@ -66,15 +66,16 @@ const DashboardView = (() => {
   }
 
   function _statsHtml(s) {
-    const pct = s.presentPct ?? 0;
+    const tot = (s.totalPresent || 0) + (s.totalAbsent || 0);
+    const pct = tot > 0 ? Math.round((s.totalPresent / tot) * 100) : 0;
     return `
       <div class="stats-row">
         <div class="stat-card">
-          <div class="stat-num status-present">${s.present ?? 0}</div>
+          <div class="stat-num status-present">${s.totalPresent ?? 0}</div>
           <div class="stat-label">Present</div>
         </div>
         <div class="stat-card">
-          <div class="stat-num status-absent">${s.absent ?? 0}</div>
+          <div class="stat-num status-absent">${s.totalAbsent ?? 0}</div>
           <div class="stat-label">Absent</div>
         </div>
         <div class="stat-card">
@@ -101,7 +102,7 @@ const DashboardView = (() => {
         <div class="period-row">
           <div class="period-time">${_fmtTime(p.startTime)}<br><span style="font-size:.65rem;color:var(--text-3)">${_fmtTime(p.endTime)}</span></div>
           <div class="period-info">
-            <div class="period-name">${esc(p.subject)}</div>
+            <div class="period-name">${esc(p.subjectName || p.subjectCode || '—')}</div>
             <div class="period-room">${esc(p.room || '')} ${esc(p.teacher || '')}</div>
           </div>
           <div style="text-align:right">

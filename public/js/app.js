@@ -232,7 +232,7 @@
     if (token) {
       try {
         const res  = await API.auth.me();
-        const user = res.data;
+        const user = res.user || res.data;   // backend returns .user
         _boot(user);
         return;
       } catch {

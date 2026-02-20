@@ -70,31 +70,42 @@ const ProfileView = (() => {
     const el = document.getElementById('attendance-stats');
     if (!el) return;
     try {
-      const res  = await API.attendance(_realmId).myAnalytics();
-      const s    = res.data;
-      const pct  = s.presentPct ?? 0;
-      const bar  = Math.min(pct, 100);
+      const res = await API.attendance(_realmId).myAnalytics();
+      // Backend: { totalPresent, totalAbsent, totalPending, absencesRemaining, atRisk, exceeded,
+      //            bySubject:[{subjectCode, subjectName, present, absent, pending}] }
+      const s   = res.data;
+      const tot = (s.totalPresent || 0) + (s.totalAbsent || 0);
+      const pct = tot > 0 ? Math.round((s.totalPresent / tot) * 100) : 0;
+      const bar = Math.min(pct, 100);
       el.innerHTML = `
         <div class="card">
-          <div class="font-semibold mb-1">Attendance Overview</div>
-          <div style="display:flex;gap:16px;margin-bottom:12px;">
-            <div><div class="stat-num status-present" style="font-size:1.2rem">${s.present}</div><div class="text-xs text-muted">Present</div></div>
-            <div><div class="stat-num status-absent" style="font-size:1.2rem">${s.absent}</div><div class="text-xs text-muted">Absent</div></div>
-            <div><div class="stat-num" style="font-size:1.2rem;color:var(--primary)">${pct}%</div><div class="text-xs text-muted">Rate</div></div>
+          <div class="font-semibold" style="margin-bottom:12px;">Attendance Overview</div>
+          <div style="display:flex;gap:24px;margin-bottom:14px;">
+            <div style="text-align:center"><div class="status-present" style="font-size:1.4rem;font-weight:700">${s.totalPresent || 0}</div><div class="text-xs text-muted">Present</div></div>
+            <div style="text-align:center"><div class="status-absent" style="font-size:1.4rem;font-weight:700">${s.totalAbsent || 0}</div><div class="text-xs text-muted">Absent</div></div>
+            <div style="text-align:center"><div style="font-size:1.4rem;font-weight:700;color:var(--primary)">${pct}%</div><div class="text-xs text-muted">Rate</div></div>
+            <div style="text-align:center"><div style="font-size:1.4rem;font-weight:700;color:var(--warning)">${s.absencesRemaining ?? '—'}</div><div class="text-xs text-muted">Left</div></div>
           </div>
-          <div style="background:var(--surface-3);border-radius:999px;height:8px;overflow:hidden">
+          <div style="background:var(--surface-3);border-radius:999px;height:8px;overflow:hidden;margin-bottom:10px">
             <div style="width:${bar}%;height:100%;background:${pct >= 80 ? 'var(--success)' : pct >= 60 ? 'var(--warning)' : 'var(--danger)'};border-radius:999px;transition:.4s"></div>
           </div>
-          ${s.atRisk ? '<div class="at-risk-banner" style="margin-top:10px">⚠ Attendance below 80% — you may be at risk</div>' : ''}
-          ${s.bySubject?.length ? `<div style="margin-top:14px">
-            ${s.bySubject.map((sub) => `<div style="display:flex;align-items:center;justify-content:space-between;padding:5px 0;font-size:.83rem;border-bottom:1px solid var(--border);">
-              <span class="truncate" style="max-width:55%">${esc(sub.subject)}</span>
-              <span style="color:${sub.rate >= 80 ? 'var(--success)' : sub.rate >= 60 ? 'var(--warning)' : 'var(--danger)'};">${sub.present}/${sub.present + sub.absent} (${sub.rate}%)</span>
-            </div>`).join('')}
-          </div>` : ''}
+          ${s.atRisk   ? '<div class="at-risk-banner">⚠ Attendance below 80% — you are at risk</div>' : ''}
+          ${s.exceeded ? '<div class="at-risk-banner" style="margin-top:6px;background:rgba(239,68,68,.2);">🚨 Maximum absences exceeded!</div>' : ''}
+          ${(s.bySubject || []).length ? `
+            <div style="margin-top:14px;display:flex;flex-direction:column;gap:0;">
+              ${(s.bySubject).map((sub) => {
+                const subTot  = (sub.present || 0) + (sub.absent || 0);
+                const subRate = subTot > 0 ? Math.round((sub.present / subTot) * 100) : 0;
+                const label   = sub.subjectName || sub.subjectCode || '—';
+                return `<div style="display:flex;align-items:center;justify-content:space-between;padding:7px 0;font-size:.83rem;border-bottom:1px solid var(--border);">
+                  <span class="truncate" style="max-width:60%;">${esc(label)}</span>
+                  <span style="white-space:nowrap;color:${subRate >= 80 ? 'var(--success)' : subRate >= 60 ? 'var(--warning)' : 'var(--danger)'}">${sub.present}/${subTot} (${subRate}%)</span>
+                </div>`;
+              }).join('')}
+            </div>` : ''}
         </div>`;
     } catch (err) {
-      el.innerHTML = `<div class="text-sm text-muted text-center">Could not load attendance stats.</div>`;
+      el.innerHTML = `<div class="text-sm text-muted text-center" style="padding:12px;">Could not load attendance stats.</div>`;
     }
   }
 
@@ -104,23 +115,29 @@ const ProfileView = (() => {
       body: `<div id="att-hist-content"><div class="spinner"></div></div>`,
     });
     try {
-      const res     = await API.attendance(_realmId).mine({ limit: 100 });
-      const records = res.data || [];
-      const modal   = document.querySelector('.modal');
-      const content = modal?.querySelector('#att-hist-content');
+      // Backend: GET /attendance/me → records with { date, periodId, status, weekType }
+      const res     = await API.attendance(_realmId).mine();
+      const records = (res.data || []).slice().reverse();  // newest first
+      const content = document.getElementById('att-hist-content');
       if (!content) return;
       if (!records.length) { content.innerHTML = '<div class="empty-state"><p>No attendance records yet.</p></div>'; return; }
       content.innerHTML = records.map((r) => {
-        const icon = r.status === 'present' ? '✅' : r.status === 'absent' ? '❌' : '⏳';
-        const date = new Date(r.createdAt).toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' });
+        const icon  = r.status === 'present' ? '✅' : r.status === 'absent' ? '❌' : '⏳';
+        // date is already a YYYY-MM-DD string from the backend
+        const parts = (r.date || '').split('-');
+        const label = parts.length === 3
+          ? `${parts[2]} ${['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+parts[1]]} ${parts[0]}`
+          : (r.date || '—');
+        const periodLabel = r.subjectCode || r.subjectName || r.periodId || '—';
         return `<div class="period-row">
-          <div class="period-time">${date}</div>
-          <div class="period-info"><div class="period-name">${esc(r.subject||r.periodId)}</div></div>
+          <div class="period-time" style="min-width:72px">${label}</div>
+          <div class="period-info"><div class="period-name">${esc(periodLabel)}</div><div class="text-xs text-muted">${r.weekType || ''}</div></div>
           <div style="font-size:1.1rem">${icon}</div>
         </div>`;
       }).join('');
     } catch (err) {
-      document.querySelector('#att-hist-content').innerHTML = `<div class="empty-state"><p>${esc(err.message)}</p></div>`;
+      const content = document.getElementById('att-hist-content');
+      if (content) content.innerHTML = `<div class="empty-state"><p>${esc(err.message)}</p></div>`;
     }
   }
 
@@ -147,8 +164,10 @@ const ProfileView = (() => {
         if (next.length < 8)  { App.toast('Password must be at least 8 characters.', 'warning'); return; }
         try {
           await API.auth.changePassword(current, next);
-          App.toast('Password changed!', 'success');
           App.closeModal();
+          App.toast('Password changed — please sign in again.', 'success');
+          // Server invalidates the session; force re-login
+          setTimeout(() => App.signOut(), 1500);
         } catch (err) { App.toast(err.message, 'danger'); }
       },
     });

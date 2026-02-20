@@ -77,20 +77,21 @@ const API = (() => {
 
   // ── Timetable ───────────────────────────────────────────────────────────────
   const timetable = (realmId) => ({
-    get:    ()           => get(`/realms/${realmId}/timetable`),
-    today:  ()           => get(`/realms/${realmId}/timetable/today`),
-    upsert: (body)       => put(`/realms/${realmId}/timetable`, body),
-    addPeriod:    (body) => post(`/realms/${realmId}/timetable/periods`, body),
-    updatePeriod: (pid, b) => patch(`/realms/${realmId}/timetable/periods/${pid}`, b),
-    removePeriod: (pid)  => del(`/realms/${realmId}/timetable/periods/${pid}`),
+    get:    ()                       => get(`/realms/${realmId}/timetable`),
+    today:  ()                       => get(`/realms/${realmId}/timetable/today`),
+    upsert: (body)                   => put(`/realms/${realmId}/timetable`, body),
+    // weekType = 'odd'|'even'  ;  day = 'monday'|'tuesday'|...
+    addPeriod:    (weekType, day, body) => post(`/realms/${realmId}/timetable/${weekType}/${day}`, body),
+    updatePeriod: (weekType, day, pid, b) => patch(`/realms/${realmId}/timetable/${weekType}/${day}/${pid}`, b),
+    removePeriod: (weekType, day, pid)   => del(`/realms/${realmId}/timetable/${weekType}/${day}/${pid}`),
   });
 
   // ── Attendance ─────────────────────────────────────────────────────────────
   const attendance = (realmId) => ({
     checkIn:       (body)      => post(`/realms/${realmId}/attendance/checkin`, body),
     mine:          (q)         => get(`/realms/${realmId}/attendance/me`, q),
-    myAnalytics:   ()          => get(`/realms/${realmId}/attendance/me/analytics`),
-    userAnalytics: (uid)       => get(`/realms/${realmId}/attendance/${uid}/analytics`),
+    myAnalytics:   ()          => get(`/realms/${realmId}/attendance/analytics/me`),
+    userAnalytics: (uid)       => get(`/realms/${realmId}/attendance/analytics/${uid}`),
     list:          (q)         => get(`/realms/${realmId}/attendance`, q),
     todayRegister: ()          => get(`/realms/${realmId}/attendance/today`),
   });
