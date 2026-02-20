@@ -1,0 +1,6 @@
+pytest>=8.0.0
+pytest-timeout>=2.3.0
+requests>=2.31.0
+python-socketio[client]>=5.11.0
+websocket-client>=1.7.0
+python-dotenv>=1.0.0
