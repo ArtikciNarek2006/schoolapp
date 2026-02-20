@@ -1,0 +1,28 @@
+# Version control
+.git
+.gitignore
+
+# Dependencies (installed fresh inside the image)
+node_modules
+
+# Secrets — supply at runtime via --env-file or -e flags
+.env
+.env.*
+
+# Uploaded user files (mount a volume in production)
+uploads/*
+!uploads/.gitkeep
+
+# Runtime / OS artefacts
+server.log
+*.log
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode
+*.swp
+
+# Test helpers
+test_framework
+scripts/p4smoke.js
