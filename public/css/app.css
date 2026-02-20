@@ -490,7 +490,7 @@ svg { display: block; }
 .msg-group .sender-name { font-size: 0.72rem; font-weight: 600; color: var(--text-2); padding: 0 4px; margin-bottom: 2px; }
 
 .bubble-wrap { display: flex; align-items: flex-end; gap: 8px; }
-.bubble-wrap.mine { flex-direction: row-reverse; justify-content: flex-end; }
+.bubble-wrap.mine { justify-content: flex-end; }
 .bubble-wrap.mine > div { display: flex; flex-direction: column; align-items: flex-end; max-width: 72%; }
 .bubble-wrap.mine .bubble { max-width: 100%; }
 
