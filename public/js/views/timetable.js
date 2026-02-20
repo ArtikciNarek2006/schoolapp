@@ -55,11 +55,17 @@ const TimetableView = (() => {
   async function _load(isSenior) {
     try {
       const res = await API.timetable(_realmId).get();
-      _ttData   = res.data;
+      _ttData   = res.data || { schedule: { odd: {}, even: {} } };
       _renderDay(_curDay, isSenior);
     } catch (err) {
+      const msg = isSenior
+        ? 'No timetable set up yet.<br>Use the <strong>＋ Add Period</strong> button below to start.'
+        : 'No timetable set up yet. Check back later.';
       document.getElementById('tt-content').innerHTML =
-        `<div class="empty-state"><p>Could not load timetable.<br>${esc(err.message)}</p></div>`;
+        `<div class="empty-state"><p>${msg}</p></div>
+         ${isSenior ? `<div style="padding:0 16px 16px"><button class="btn btn-outline btn-full" id="btn-add-period">＋ Add Period</button></div>` : ''}`;
+      _ttData = { schedule: { odd: {}, even: {} } };
+      document.getElementById('btn-add-period')?.addEventListener('click', () => _showAddPeriod(_curDay));
     }
   }
 
